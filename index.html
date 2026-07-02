@@ -1,0 +1,722 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heba story game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gamegit.css" />
+  </head>
+  <body>
+    <div class="menu" id="home">
+      <h1>The love of my life</h1>
+      <button onclick="btnclick() ; scene1() " class="set1">Start Game</button>
+      <button onclick="showSettings() ; btnclick()" class="set2">Settings</button>
+      <button onclick="btnclick() ; showAchievements()" class="set3">Achievements</button>
+      <span>created by Ehab</span>
+    </div>
+    <div style="display:none;" id="achievementsScreen" class="settingsStyle">
+    <button onclick="hideAchievements() ; btnclick()" class="back-btn">X</button>
+    <h1 >Achievements</h1>
+    <div id="achievementsContainer" class="achievements-list"></div>
+</div>
+    <audio id="mySong" loop>
+        <source src="sounds1/Abba - The winner takes it all.mp3" type="audio/mpeg">
+    </audio>
+   <div style="display:none;" id="settings" class="settingsStyle">
+    <button onclick="hideSettings() ; btnclick()" class="back-btn">ْX
+    </button>
+    <h1>Settings</h1>
+    <div class="slider-container">
+        <label for="volumeSlider" class="sound">sounds level:</label>
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5" class="sounds">
+    </div>
+    <div class="slider-container2">
+        <label for="volumeSlider2" class="effect">sound effects level:</label>
+        <input type="range" id="volumeSlider2" min="0" max="1" step="0.1" value="0.5" class="effects">
+    </div>
+    <span class="cbe">created by Ehab</span>
+  </div>
+    <audio id="clickSound">
+        <source src="sounds1/button sound effect.mp3" type="audio/mpeg">
+    </audio>
+        <audio id="achivement">
+      <source src="sounds1/achievement-effect.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="backgroundmMusic1" loop>
+      <source src="sounds1/back-music-1.mp3" type="audio/mpeg">
+    </audio>
+        <audio id="backgroundmMusic2" loop>
+      <source src="sounds3/romantic-1.mp3" type="audio/mpeg">
+    </audio>
+<audio id="backgroundmMusic3" loop>
+      <source src="sounds1/nuts.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="backgroundmMusic4" loop>
+      <source src="sounds3/let her go.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="backgroundmMusic5" loop>
+   <source src="sounds1/all i want.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="backgroundmMusic6" loop>
+      <source src="sounds3/sad-1.mp3" type="audio/mpeg">
+    </audio>
+        <audio id="backgroundmMusic7" loop>
+      <source src="sounds2/sad-2.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="backgroundmMusic8" loop>
+      <source src="sounds2/sad-3.mp3" type="audio/mpeg">
+    </audio>
+        <audio id="backgroundmMusic9" loop>
+      <source src="sounds3/romantic-2.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="backgroundmMusic10" loop>
+      <source src="sounds2/sad-4.mp3" type="audio/mpeg">
+    </audio>
+    <button id="globalSettingsBtn" class="global-settings-btn" onclick="btnclick(); showSettings()" style="display: none;">
+    ⚙️ Settings
+</button>
+<button id="globalAchievementsBtn" class="global-achievements-btn" onclick="btnclick(); showAchievements()" style="display: none;">
+        🏆 Achievements
+    </button>
+    <div class ="scenesContainer">
+    <div id="scene-1" style="display:none;" class="scene-1">
+      <img src="images2/scene-1.png" class="scene-1-img">
+      <button class="next-btn" onclick="btnclick(); scene2()">Next</button>
+    </div>
+    <div id="scene-2" style="display:none;" class="scene-2">
+     <img src="images2/scene-2.jpg" >
+      <button class="help-s2" onclick="btnclick() ; scene3A()">Help her with carrying books</button>
+     <button class="go-s2" onclick="btnclick() ; scene3B()">Go to class</button>
+    </div>
+<div id="scene-3" class="scene-3">
+  <div class="scene-3A"  style="display:none;" id="scene-3A">
+    <img src="images2/scene-3A.png">
+    <button class="next-btn" onclick="btnclick() ; scene4()">Next</button>
+  </div>
+  <div class="scene-3B"  style="display:none;" id="scene-3B">
+     <img src="images2/scene-3B.png">
+     <button class="next-btn" onclick="btnclick() ; scene4()">Next</button>
+    </div>
+</div>
+    <div class="scene-4" style="display:none;" id="scene-4">
+      <img src="images2/scene-4.png">
+      <button class="next-btn" onclick="btnclick() ; scene5()">Next</button>
+    </div>
+    <div class="scene-5"  id="scene-5">
+<div class="scene-5A" style="display:none;" id="scene-5A">
+<img src="images2/scene-5A.png">
+<button class="next-btn" onclick="btnclick() ; scene6()">Next</button>
+</div>
+<div class="scene-5B" style="display:none;" id="scene-5B">
+<img src="images2/scene-5B.png">
+<button class="next-btn" onclick="btnclick() ; scene6_2()" >Next</button>
+</div>
+    </div>
+    <div id="scene-6" style="display:none;" class="scene-6">
+      <img src="images2/scene-6.png">
+      <button class="scene-6-1" onclick="btnclick() ; scene7A()">Talk to Heba</button>
+      <button class="scene-6-2" onclick="btnclick() ; scene7B()">Do nothing</button>
+      </div>
+      <div id="scene-7" class="scene-7">
+     <div id="scene-7A" style="display:none;" class="scene-7A">
+      <img src="images2/scene-6.png">
+      <button class="scene-7-1A" onclick="btnclick() ; scene8B()">Talk about studying</button>
+      <button class="scene-7-2A" onclick="btnclick() ; scene8A()">Talk about anime</button>
+     </div>
+     <div id="scene-7B" style="display:none;" class="scene-7B">
+<img src="images2/scene-7B.png">
+<button class="next-btn" onclick="btnclick() ; branch1()">Next</button>
+     </div>
+   </div>
+<div id="scene-8" class="scene-8">
+<div id="scene-8A" style="display:none;" class="scene-8A">
+<img src="images2/scene-8A.png">
+<button class="next-btn" onclick="btnclick() ; branch1()">Next</button>
+</div>
+<div id="scene-8B" style="display:none;" class="scene-8B">
+<img src="images2/scene-8B.png">
+<button class="next-btn" onclick="btnclick() ; branch1()">Next</button>
+</div>
+</div>
+<div id="scene-6_2" style="display:none;" class="scene-6_2">
+<img src="images2/scene-6-2.png">
+<button class="next-btn" onclick="btnclick() ; scene7_2()">Next</button>
+</div>
+<div id="scene-7_2" style="display:none;" class="scene-7_2">
+  <img src="images2/scene-7-2.png">
+  <button class="next-btn" onclick="btnclick() ; scene8_2()">Next</button>
+</div>
+<div id="scene-8_2" style="display:none;" class="scene-8_2">
+ <img src="images2/scene-8-2.png">
+ <button class="next-btn" onclick="btnclick() ; scene9()">Next</button>
+</div>
+<div id="scene-9" style="display:none;" class="scene-9">
+  <img src="images2/scene-9.png">
+  <button class="scene-9-1" onclick="btnclick() ; scene10A()">Yes</button>
+  <button class="scene-9-2" onclick="btnclick() ; scene12CB()">No</button>
+</div>
+<div id="scene-10" class="scene-10">
+<div id="scene-10A" style="display:none;" class="scene-10A">
+<img src="images2/scene-10A.png">
+<button class="scene-10A-1" onclick="btnclick() ; scene11C()">Talk about anime as yesterday</button>
+<button class="scene-10A-2" onclick="btnclick() ; scene11A()">Talk about future life</button>
+<button class="scene-10A-3" onclick="btnclick() ; scene12CA()">Talk about gaming</button>
+</div>
+<div id="scene-10C" style="display:none;" class="scene-10C">
+<img src="images2/scene-10A.png">
+<button class="scene-10C-1" onclick="btnclick() ; scene11A()">Talk about future life</button>
+<button class="scene-10C-2" onclick="btnclick() ; scene12CA()">Talk about gaming</button>
+</div>
+</div>
+<div id="scene-11A" style="display:none;" class="scene-11A">
+<img src="images2/scene-11A.png">
+<button class="scene-11A-1" onclick="btnclick() ; scene12A()">Ask her about marriage</button>
+<button class="scene-11A-2" onclick="btnclick() ; scene13CB()">End conversation</button>
+</div>
+<div id="scene-12A" style="display:none;" class="scene-12A">
+<img src="images2/scene-12A.png">
+<button class="next-btn" onclick="btnclick() ; scene13CB()">Next</button>
+</div>
+<div id="scene-11C" style="display:none;" class="scene-11C">
+<img src="images2/scene-11C.png">
+<button class="scene-11C-1" onclick="btnclick() ; scene12CA()">Ask her if she wants to play a video game tonight</button>
+<button class="scene-11C-2" onclick="btnclick() ; scene12CB()">End conversation</button>
+</div>
+<div id="scene-12CA" style="display:none;" class="scene-12CA">
+<img src="images2/scene-12CA.png">
+<button class="next-btn" onclick="btnclick() ;scene13CB()">Next</button>
+</div>
+<div id="scene-12CB" style="display:none;" class="scene-12CB">
+<img src="images2/scene-3B.png">
+<button class="next-btn" onclick="btnclick() ; scene13CB()">Next</button>
+</div>
+<div id="scene-13CB" style="display:none;" class="scene-13CB">
+<img src="images2/scene-13CB.png">
+<button class="scene-13CB-1" onclick="btnclick() ; scene14CBA()">Listen to "let her go"</button>
+<button class="scene-13CB-2" onclick="btnclick() ; scene14CBB()">Listen to "All I want is you"</button>
+</div>
+<div id="scene-14CB" class="scene-14CB">
+  <div id="scene-14CBA" style="display:none;" class="scene-14CBA">
+<img src="images2/scene-14CBA.png">
+<button class="next-btn" onclick="btnclick() ; scene15()" id="scene14CBA-btn" style="display:none;">Next</button>
+  </div>
+  <div id="scene-14CBB" style="display:none;" class="scene-14CBB">
+<img src="images2/scene-14CBB.png">
+<button class="next-btn" onclick="btnclick() ; scene15()" id="scene14CBB-btn" style="display:none;">Next</button>
+  </div>
+</div>
+<div id="scene-15" class="scene-15">
+<div id="scene-15A" style="display:none;" class="scene-15A">
+<img src="images2/scene-15A.png">
+<button class="next-btn" onclick="btnclick() ; scene16_1()">Next</button>
+</div>
+<div id="scene-15B" style="display:none;" class="scene-15B">
+<img src="images2/scene-15B.png">
+<button class="next-btn" onclick="btnclick() ; scene16_2()">Next</button>
+</div>
+<div id="scene-15C" style="display:none;" class="scene-15C">
+<img src="images2/scene-15C.png">
+<button class="next-btn" onclick="btnclick() ; scene16_3()">Next</button>
+</div>
+<div id="scene-15D" style="display:none;" class="scene-15D">
+<img src="images2/scene-15D.png">
+<button class="next-btn" onclick="btnclick() ; scene16_4()">Next</button>
+</div>
+</div>
+<div id="scene-16_1" style="display:none;" class="scene-16_1">
+  <img src="images2/scene-16_1.png">
+  <button class="next-btn" onclick="btnclick() ; scene17_1()">Next</button>
+</div>
+<div id="scene-17_1" style="display:none;" class="scene-17_1">
+  <img src="images2/scene-17_1.png">
+  <button class="next-btn" onclick="btnclick() ; scene18_1()">Next</button>
+</div>
+<div id="scene-18_1" style="display:none;" class="scene-18_1">
+<img src="images2/scene-18_1.png">
+<button class="scene-18_1-1" onclick="btnclick() ; scene20_1()">Don't give him cigarette</button>
+<button class="scene-18_1-2" onclick="btnclick() ; scene19_1A()">Give him a cigarette</button>
+</div>
+<div id="scene-19_1A" style="display:none;" class="scene-19_1A">
+<img src="images2/scene-19_1A.png">
+<button class="next-btn" onclick="btnclick() ; scene20_1()">Next</button>
+</div>
+<div id="scene-20_1" style="display:none;" class="scene-20_1">
+<img src="images2/scene-20_1A.png">
+<button class="next-btn" onclick="btnclick() ; scene21_1()">Next</button>
+</div>
+<div id="scene-21_1" style="display:none;" class="scene-21_1">
+<img src="images2/scene-21_1.png">
+  <button class="next-btn" onclick="btnclick() ; S1()">Next</button>
+</div>
+<div id="S1" style="display:none;" class="S1">
+<img src="images2/scene-15D.png">
+  <button class="next-btn" onclick="btnclick() ; S2()">Next</button>
+</div>
+<div id="S2" style="display:none;" class="S2">
+<img src="images2/S2.png">
+  <button class="next-btn" onclick="btnclick() ; S3()">Next</button>
+</div>
+<div id="S3" style="display:none;" class="S3">
+<img src="images2/S3.png">
+  <button class="next-btn" onclick="btnclick() ; S4()">Next</button>
+</div>
+<div id="S4" style="display:none;" class="S4">
+<img src="images2/S4.png">
+  <button class="next-btn" onclick="btnclick() ; S5()">Next</button>
+</div>
+<div id="S5" style="display:none;" class="S5">
+<img src="images2/S5.png">
+  <button class="next-btn" onclick="btnclick() ; S6()">Next</button>
+</div>
+<div id="S6" style="display:none;" class="S6">
+<img src="images1/F3.png">
+  <button class="next-btn" onclick="btnclick() ; S7()">Next</button>
+</div>
+<div id="S7" style="display:none;" class="S7">
+<img src="images1/F4.png">
+  <button class="next-btn" onclick="btnclick() ; S8()">Next</button>
+</div>
+<div id="S8" style="display:none;" class="S8">
+<img src="images2/S8.png">
+  <button class="next-btn" onclick="btnclick() ; S9()">Next</button>
+</div>
+<div id="S9" style="display:none;" class="S9">
+<img src="images2/S9.png">
+  <button class="next-btn" onclick="btnclick() ; S10()">Next</button>
+</div>
+<div id="S10" style="display:none;" class="S10">
+<img src="images2/S10.png">
+  <button class="next-btn" onclick="btnclick() ; S11()">Next</button>
+</div>
+<div id="S11" style="display:none;" class="S11">
+<img src="images1/F12.png">
+  <button class="next-btn" onclick="btnclick() ; S12()">Next</button>
+</div>
+<div id="S12" style="display:none;" class="S12">
+<img src="images2/S12.png">
+  <button class="next-btn" onclick="btnclick() ; S13()">Next</button>
+</div>
+<div id="S13" style="display:none;" class="S13">
+<img src="images2/S13.png">
+  <button class="next-btn" onclick="btnclick() ; S14()">Next</button>
+</div>
+<div id="S14" style="display:none;" class="S14">
+<img src="images2/S14.png">
+  <button class="next-btn" onclick="btnclick() ; S15()">Next</button>
+</div>
+<div id="S15" style="display:none;" class="S15">
+<img src="images2/S15.png">
+  <button class="next-btn" onclick="btnclick() ; S16()">Next</button>
+</div>
+<div id="S16" style="display:none;" class="S16">
+<img src="images2/S16.png">
+  <button class="next-btn" onclick="btnclick() ; S17()">Next</button>
+</div>
+<div id="S17" style="display:none;" class="S17">
+<img src="images2/S17.png">
+  <button class="next-btn" onclick="btnclick() ; S18()">Next</button>
+</div>
+<div id="S18" style="display:none;" class="S18">
+<img src="images2/S18.png">
+  <button class="next-btn" onclick="btnclick() ; S19()">Next</button>
+</div>
+<div id="S19" style="display:none;" class="S19">
+<img src="images2/S19.png">
+  <button class="next-btn" onclick="btnclick() ; S20()">Next</button>
+</div>
+<div id="S20" style="display:none;" class="S20">
+<img src="images1/F15.png">
+  <button class="next-btn" onclick="btnclick() ; S21()">Next</button>
+</div>
+<div id="S21" style="display:none;" class="S21">
+<img src="images2/S21.png">
+  <button class="next-btn" onclick="btnclick() ; S22()">Next</button>
+</div>
+<div id="S22" style="display:none;" class="S22">
+<img src="images2/S22.png">
+  <button class="next-btn" onclick="btnclick() ; S23()">Next</button>
+</div>
+<div id="S23" style="display:none;" class="S23">
+<img src="images2/S23.png">
+  <button class="next-btn" onclick="btnclick() ; S24()">Next</button>
+</div>
+<div id="S24" style="display:none;" class="S24">
+<img src="images1/L11.png">
+  <button class="next-btn" onclick="btnclick() ; S25()">Next</button>
+</div>
+<div id="S25" style="display:none;" class="S25">
+<img src="images2/S25.png">
+  <button class="next-btn" onclick="btnclick() ; S26()">Next</button>
+</div>
+<div id="S26" style="display:none;" class="S26">
+<img src="images2/S26.png">
+  <button class="next-btn" onclick="btnclick() ; S27()">Next</button>
+</div>
+<div id="S27" style="display:none;" class="S27">
+<img src="images2/S27.png">
+  <button class="next-btn" onclick="btnclick() ; S28()">Next</button>
+</div>
+<div id="S28" style="display:none;" class="S28">
+<img src="images1/L11.png">
+  <button class="next-btn" onclick="btnclick() ; S29()">Next</button>
+</div>
+<div id="S29" style="display:none;" class="S29">
+<img src="images2/S29.png">
+  <button class="next-btn" onclick="btnclick() ; S30()">Next</button>
+</div>
+<div id="S29+" style="display:none;" class="S29+">
+<img src="images2/S29+.png">
+  <button class="next-btn" onclick="btnclick() ; S30_2()">Next</button>
+</div>
+<div id="S30+" style="display:none;" class="S30+">
+<img src="images2/S30+.png">
+  <button class="next-btn" onclick="btnclick() ; S31_2()">Next</button>
+</div>
+<div id="S31+" style="display:none;" class="S31+">
+<img src="images2/S31+.png">
+  <button class="next-btn" onclick="btnclick() ; S32_0()">Next</button>
+</div>
+<div id="S30" style="display:none;" class="S30">
+<img src="images2/S30.png">
+  <button class="next-btn" onclick="btnclick() ; S31()">Next</button>
+</div>
+<div id="S31" style="display:none;" class="S31">
+<img src="images2/S31.png">
+  <button class="next-btn" onclick="btnclick() ; S32()">Next</button>
+</div>
+<div id="S32" style="display:none;" class="S32">
+<img src="images2/S32.png">
+  <button class="next-btn" onclick="btnclick() ; S33()">Next</button>
+</div>
+<div id="S33" style="display:none;" class="S33">
+<img src="images2/S33.png">
+  <button class="next-btn" onclick="btnclick() ; S34()">Next</button>
+</div>
+<div id="S34" style="display:none;" class="S34">
+<img src="images2/S34.png">
+  <button class="next-btn" onclick="btnclick() ; F37()">Next</button>
+</div>
+<div id="scene-16_4" style="display:none;" class="scene-16_4">
+  <img src="images2/scene-16_4.png">
+  <button class="scene-16_4-1" onclick="btnclick() ; scene17_4C()">Talk about relationships</button>
+  <button class="scene-16_4-2" onclick="btnclick() ; scene17_4B()">Ask her to play</button>
+  <button class="scene-16_4-3" onclick="btnclick() ; scene17_4A()">End conversation</button>
+</div>
+<div id="scene-17_4A" style="display:none;" class="scene-17_4A">
+<img src="images2/scene-7B.png">
+<button class="next-btn" onclick="btnclick() ; scene18_4()">Next</button>
+</div>
+<div id="scene-17_4B" style="display:none;" class="scene-17_4B">
+  <img src="images2/scene-15B.png">
+  <button class="next-btn" onclick="btnclick() ; scene16_2()">Next</button>
+</div>
+<div id="scene-17_4C" style="display:none;" class="scene-17_4C">
+<img src="images2/scene-15C.png">
+<button class="next-btn" onclick="btnclick() ; scene16_3()">Next</button>
+</div>
+<div id="scene-16_3" style="display:none;" class="scene-16_3">
+<img src="images2/scene-16_3.png">
+<button class="next-btn" onclick="btnclick() ; confess()">Next</button>
+</div>
+<div id="scene-16_2" style="display:none;" class="scene-16_2">
+<img src="images2/scene-16_2.png">
+  <button class="next-btn" onclick="btnclick() ; confess()">Next</button>
+</div>
+<div id="F1" style="display:none;" class="F1">
+<img src="images1/F1.png">
+<button class="next-btn" onclick="btnclick() ; F2()">Next</button>
+</div>
+<div id="F2A" style="display:none;" class="F2A">
+  <img src="images1/F2A.png">
+<button class="next-btn" onclick="btnclick() ; sad()">Next</button>
+</div>
+<div id="F2B" style="display:none;" class="F2B">
+<img src="images1/F2B.png">
+<button class="next-btn" onclick="btnclick() ; F3()">Next</button>
+</div>
+<div id="F3" style="display:none;" class="F3">
+<img src="images1/F3.png">
+<button class="next-btn" onclick="btnclick() ; F4()">Next</button>
+</div>
+<div id="F4" style="display:none;" class="F4">
+<img src="images1/F4.png">
+<button class="next-btn" onclick="btnclick() ; F5()">Next</button>
+</div>
+<div id="F5" style="display:none;" class="F5">
+<img src="images1/F5.png">
+<button class="next-btn" onclick="btnclick() ; F6()">Next</button>
+</div>
+<div id="F6" style="display:none;" class="F6">
+  <img src="images1/F6.png">
+  <button class="next-btn" onclick="btnclick() ; F7()">Next</button>
+</div>
+<div id="F7" style="display:none;" class="F7">
+  <img src="images1/F7.png">
+  <button class="next-btn" onclick="btnclick() ; F8()">Next</button>
+</div>
+<div id="F8" style="display:none;" class="F8">
+  <img src="images1/F8.png">
+  <button class="next-btn" onclick="btnclick() ; F9()">Next</button>
+</div>
+<div id="F9" style="display:none;" class="F9">
+  <img src="images1/F9.png">
+  <button class="next-btn" onclick="btnclick() ; F10()">Next</button>
+</div>
+<div id="F10" style="display:none;" class="F10">
+  <img src="images1/F10.png">
+  <button class="next-btn" onclick="btnclick() ; F11()">Next</button>
+</div>
+<div id="F11" style="display:none;" class="F11">
+  <img src="images1/F11.png">
+  <button class="next-btn" onclick="btnclick() ; F12()">Next</button>
+</div>
+<div id="F12" style="display:none;" class="F12">
+  <img src="images1/F12.png">
+  <button class="next-btn" onclick="btnclick() ; F13()">Next</button>
+</div>
+<div id="F13" style="display:none;" class="F13">
+  <img src="images1/F13.png">
+  <button class="next-btn" onclick="btnclick() ; F14()">Next</button>
+</div>
+<div id="F14" style="display:none;" class="F14">
+  <img src="images1/F14.png">
+  <button class="next-btn" onclick="btnclick() ; F15()">Next</button>
+</div>
+<div id="F15" style="display:none;" class="F15">
+  <img src="images1/F15.png">
+  <button class="next-btn" onclick="btnclick() ; F16()">Next</button>
+</div>
+<div id="F16" style="display:none;" class="F16">
+  <img src="images1/F16.png">
+  <button class="next-btn" onclick="btnclick() ; F17()">Next</button>
+</div>
+<div id="F17" style="display:none;" class="F17">
+  <img src="images1/F17.png">
+  <button class="next-btn" onclick="btnclick() ; F18()">Next</button>
+</div>
+<div id="F18" style="display:none;" class="F18">
+  <img src="images1/F18.png">
+  <button class="next-btn" onclick="btnclick() ; F19()">Next</button>
+</div>
+<div id="F19" style="display:none;" class="F19">
+  <img src="images1/F19.png">
+  <button class="next-btn" onclick="btnclick() ; F20()">Next</button>
+</div>
+<div id="F20" style="display:none;" class="F20">
+  <img src="images1/F20.png">
+  <button class="next-btn" onclick="btnclick() ; F21()">Next</button>
+</div>
+<div id="F21" style="display:none;" class="F21">
+  <img src="images1/F21.png">
+  <button class="next-btn" onclick="btnclick() ; F22()">Next</button>
+</div>
+<div id="F22" style="display:none;" class="F22">
+  <img src="images1/F22.png">
+  <button class="next-btn" onclick="btnclick() ; F23()">Next</button>
+</div>
+<div id="F23" style="display:none;" class="F23">
+  <img src="images1/F23.png">
+  <button class="next-btn" onclick="btnclick() ; F24()">Next</button>
+</div>
+<div id="F24" style="display:none;" class="F24">
+  <img src="images1/F24.png">
+  <button class="next-btn" onclick="btnclick() ; F25()">Next</button>
+</div>
+<div id="F25" style="display:none;" class="F25">
+  <img src="images1/F25.png">
+  <button class="next-btn" onclick="btnclick() ; F26()">Next</button>
+</div>
+<div id="F26" style="display:none;" class="F26">
+  <img src="images1/F26.png">
+  <button class="next-btn" onclick="btnclick() ; F27()">Next</button>
+</div>
+<div id="F27" style="display:none;" class="F27">
+  <img src="images1/F27.png">
+  <button class="next-btn" onclick="btnclick() ; F28()">Next</button>
+</div>
+<div id="F28" style="display:none;" class="F28">
+  <img src="images1/F28.png">
+  <button class="next-btn" onclick="btnclick() ; F29()">Next</button>
+</div>
+<div id="F29" style="display:none;" class="F29">
+  <img src="images1/F29.png">
+  <button class="next-btn" onclick="btnclick() ; F30()">Next</button>
+</div>
+<div id="F30" style="display:none;" class="F30">
+  <img src="images1/F30.png">
+  <button class="next-btn" onclick="btnclick() ; F31()">Next</button>
+</div>
+<div id="F31" style="display:none;" class="F31">
+  <img src="images1/F31.png">
+  <button class="next-btn" onclick="btnclick() ; F32()">Next</button>
+</div>
+<div id="F32" style="display:none;" class="F32">
+  <img src="images1/F32.png">
+  <button class="next-btn" onclick="btnclick() ; F33()">Next</button>
+</div>
+<div id="F33" style="display:none;" class="F33">
+  <img src="images1/F33.png">
+  <button class="next-btn" onclick="btnclick() ; F34()">Next</button>
+</div>
+<div id="F34" style="display:none;" class="F34">
+  <img src="images1/F34.png">
+  <button class="next-btn" onclick="btnclick() ; F35()">Next</button>
+</div>
+<div id="F35" style="display:none;" class="F35">
+  <img src="images1/F35.png">
+  <button class="next-btn" onclick="btnclick() ; F36()">Next</button>
+</div>
+<div id="F36" style="display:none;" class="F36">
+  <img src="images1/F36.png">
+  <button class="next-btn" onclick="btnclick() ; F37()">Next</button>
+</div>
+<div id="F37" style="display:none;" class="F37">
+  <img src="images1/end.png">
+  <button class="finale" onclick="btnclick() ; returnhome()">Start menu</button>
+</div>
+<div id="L1" style="display:none;" class="L1">
+<img src="images1/L1.png">
+<button class="next-btn" onclick="btnclick() ; L2()">Next</button>
+</div>
+<div id="L2" style="display:none;" class="L2">
+<img src="images1/L2.png">
+<button class="next-btn" onclick="btnclick() ; L3()">Next</button>
+</div>
+<div id="L3" style="display:none;" class="L3">
+<img src="images1/F32.png">
+<button class="next-btn" onclick="btnclick() ; L4()">Next</button>
+</div>
+<div id="L4" style="display:none;" class="L4">
+<img src="images1/L4.png">
+<button class="next-btn" onclick="btnclick() ; L5()">Next</button>
+</div>
+<div id="L5" style="display:none;" class="L5">
+<img src="images1/L5.png">
+<button class="next-btn" onclick="btnclick() ; L6()">Next</button>
+</div>
+<div id="L6" style="display:none;" class="L6">
+<img src="images1/L6.png">
+<button class="next-btn" onclick="btnclick() ; L7()">Next</button>
+</div>
+<div id="L7" style="display:none;" class="L7">
+<img src="images1/L7.png">
+<button class="next-btn" onclick="btnclick() ; L8()">Next</button>
+</div>
+<div id="L8" style="display:none;" class="L8">
+<img src="images1/F3.png">
+<button class="next-btn" onclick="btnclick() ; L9()">Next</button>
+</div>
+<div id="L9" style="display:none;" class="L9">
+<img src="images1/F4.png">
+<button class="next-btn" onclick="btnclick() ; L10()">Next</button>
+</div>
+<div id="L10" style="display:none;" class="L10">
+<img src="images1/L10.png">
+<button class="next-btn" onclick="btnclick() ; L11()">Next</button>
+</div>
+<div id="L11+" style="display:none;" class="L11+">
+<img src="images1/L11+.png">
+<button class="next-btn" onclick="btnclick() ; L12_2()">Next</button>
+</div>
+<div id="L12+" style="display:none;" class="L12+">
+<img src="images1/L12+.png">
+<button class="next-btn" onclick="btnclick() ; L11_0()">Next</button>
+</div>
+<div id="L11" style="display:none;" class="L11">
+<img src="images1/L11.png">
+<button class="next-btn" onclick="btnclick() ; L12()">Next</button>
+</div>
+<div id="L12" style="display:none;" class="L12">
+<img src="images1/L12.png">
+<button class="next-btn" onclick="btnclick() ; L13()">Next</button>
+</div>
+<div id="L13" style="display:none;" class="L13">
+<img src="images1/L13.png">
+<button class="next-btn" onclick="btnclick() ; L14()">Next</button>
+</div>
+<div id="L14" style="display:none;" class="L14">
+<img src="images1/L14.png">
+<button class="next-btn" onclick="btnclick() ; L15()">Next</button>
+</div>
+<div id="L15" style="display:none;" class="L15">
+<img src="images1/F12.png">
+<button class="next-btn" onclick="btnclick() ; L16()">Next</button>
+</div>
+<div id="L16" style="display:none;" class="L16">
+<img src="images1/L16.png">
+<button class="next-btn" onclick="btnclick() ; L17()">Next</button>
+</div>
+<div id="L17" style="display:none;" class="L17">
+<img src="images1/L17.png">
+<button class="next-btn" onclick="btnclick() ; L18()">Next</button>
+</div>
+<div id="L18" style="display:none;" class="L18">
+<img src="images1/L18.png">
+<button class="next-btn" onclick="btnclick() ; L19()">Next</button>
+</div>
+<div id="L19" style="display:none;" class="L19">
+<img src="images1/F15.png">
+<button class="next-btn" onclick="btnclick() ; L20()">Next</button>
+</div>
+<div id="L20" style="display:none;" class="L20">
+<img src="images1/L20.png">
+<button class="next-btn" onclick="btnclick() ; L21()">Next</button>
+</div>
+<div id="L21" style="display:none;" class="L21">
+<img src="images1/L11.png">
+<button class="next-btn" onclick="btnclick() ; L22()">Next</button>
+</div>
+<div id="L22" style="display:none;" class="L22">
+<img src="images1/L22.png">
+<button class="next-btn" onclick="btnclick() ; L23()">Next</button>
+</div>
+<div id="L23" style="display:none;" class="L23">
+<img src="images1/L23.png">
+<button class="next-btn" onclick="btnclick() ; L24()">Next</button>
+</div>
+<div id="L24" style="display:none;" class="L24">
+<img src="images1/L11.png">
+<button class="next-btn" onclick="btnclick() ; L25()">Next</button>
+</div>
+<div id="L25" style="display:none;" class="L25">
+<img src="images1/L25.png">
+<button class="next-btn" onclick="btnclick() ; L26()">Next</button>
+</div>
+<div id="L26" style="display:none;" class="L26">
+<img src="images1/L26.png">
+<button class="next-btn" onclick="btnclick() ; L27()">Next</button>
+</div>
+<div id="L27" style="display:none;" class="L27">
+<img src="images1/L27.png">
+<button class="next-btn" onclick="btnclick() ; L28()">Next</button>
+</div>
+<div id="L28" style="display:none;" class="L28">
+<img src="images1/L28.png">
+<button class="next-btn" onclick="btnclick() ; L29()">Next</button>
+</div>
+<div id="L29" style="display:none;" class="L29">
+<img src="images1/L29.png">
+<button class="next-btn" onclick="btnclick() ; L30()">Next</button>
+</div>
+<div id="L30" style="display:none;" class="L30">
+<img src="images1/L30.png">
+<button class="next-btn" onclick="btnclick() ; L31()">Next</button>
+</div>
+<div id="L31" style="display:none;" class="L31">
+<img src="images1/L31.png">
+<button class="next-btn" onclick="btnclick() ; L32()">Next</button>
+</div>
+<div id="L32" style="display:none;" class="L32">
+<img src="images1/L32.png">
+<button class="next-btn" onclick="btnclick() ; F37()">Next</button>
+</div>
+</div>
+  <script src="gamegit.js"></script>
+  <div id="achievement-box" class="achievement-toast">
+    <h3 style="margin: 5px 0;">🏆 New Achievement!</h3>
+    <p id="achievement-text" style="margin: 0;"></p>
+</div>
+  </body>
+</html>
+  
